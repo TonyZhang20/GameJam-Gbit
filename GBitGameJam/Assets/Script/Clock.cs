@@ -49,7 +49,7 @@ namespace Script
 
         private void AfterJumpFail()
         {
-            rotateScript.RotateAngle(-angle, Pointer, _holdTimeBeforeJump,true);
+            rotateScript.RotateAngle(-_forceBeforeJump, Pointer, _holdTimeBeforeJump);
         }
         
         protected override void GenerateStartJumpPoint()
@@ -81,7 +81,7 @@ namespace Script
             }
             else
             {
-                EventHandler.CallAfterJumpFinish();
+                EventHandler.CallAfterJumpFail();
             }
         }   
 
