@@ -2310,10 +2310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f361b54b8d55d40861ee8332b594e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 2
+  force: -200
   angle: 0
-  ableToJump: 0
-  targetScale: {x: 0.1, y: 0.1, z: 1}
-  originalScale: {x: 1.06, y: 0.235004, z: 1}
+  ableToJump: 1
+  targetScale: {x: 0.1838, y: 5.041595, z: 1}
+  originalScale: {x: 0.1838, y: 5.041595, z: 1}
   scaleSpeed: 3
   originalSpeed: 10
