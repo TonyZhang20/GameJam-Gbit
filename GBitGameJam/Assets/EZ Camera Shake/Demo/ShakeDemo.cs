@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using EZCameraShake;
+using UnityEngine.SceneManagement;
 
 public class ShakeDemo : MonoBehaviour 
 {
