@@ -8,10 +8,10 @@ namespace Script
 {
     public class ClockRotate : RotateScript
     {
-        private float _rotateAngle = 30f;
+        public float rotateAngle;
+        private float _rotateAngle;
         private bool _ableToRotate = true;
 
-        public Transform generatePosition;
         protected override void RotateFunction()
         {
             if (counting >= 0 && _ableToRotate)
@@ -27,6 +27,7 @@ namespace Script
 
         private void OnEnable()
         {
+            _rotateAngle = rotateAngle;
             EventHandler.BeforeJumpStart += DuringJump;
             EventHandler.AfterJumpFinish += FinishJump;
         }
@@ -45,7 +46,7 @@ namespace Script
 
         private void FinishJump()
         {
-            _rotateAngle = 30;
+            _rotateAngle = rotateAngle;
             _ableToRotate = true;
         }
 
@@ -59,7 +60,7 @@ namespace Script
         {
             DOTween.Kill(_tweenerCore);
 
-            _tweenerCore = target.DORotate(new Vector3(0, 0, -angle), time, RotateMode.WorldAxisAdd);
+            _tweenerCore = target.DOLocalRotate(new Vector3(-angle, 0, 0), time, RotateMode.WorldAxisAdd);
 
             if (callEvent)
                 _tweenerCore.OnComplete(EventHandler.CallAfterJumpFinish);

@@ -11,13 +11,6 @@ namespace Script
         [Header("能否跳跃"),SerializeField] protected bool ableToJump = false;
         protected RotateScript RotateScript;
         protected float holdingTime = 0; //持续按下的时间
-
-
-        private bool scaling;
-        public Vector3 targetScale;
-        public Vector3 originalScale;
-        public float scaleSpeed = 3;
-        public float originalSpeed = 10;
         
         protected Transform Pointer;
 
@@ -37,23 +30,6 @@ namespace Script
             if (Input.GetKey(KeyCode.Space) && ableToJump) PrepareJump();
             if (Input.GetKeyUp(KeyCode.Space) && ableToJump) Jump();
             
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                scaling = true;
-            }
-            else if (Input.GetKeyUp(KeyCode.Space))
-            {
-                scaling = false;
-            }
-
-            if (scaling)
-            {
-                Pointer.localScale = Vector3.Lerp(Pointer.localScale, targetScale, scaleSpeed * Time.deltaTime);
-            }
-            else
-            {
-                Pointer.localScale = Vector3.Lerp(Pointer.localScale, originalScale, originalSpeed * Time.deltaTime);
-            }
         }
         
         protected abstract void ChildUpdate();
