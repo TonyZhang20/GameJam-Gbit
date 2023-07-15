@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script
 {
@@ -9,15 +10,15 @@ namespace Script
         [Header("跳跃系数"), SerializeField]protected float force = 2;
         [Header("跳跃角度"), SerializeField] protected float angle = 0;
         [Header("能否跳跃"),SerializeField] protected bool ableToJump = false;
-        protected RotateScript RotateScript;
+        [SerializeField] protected RotateScript rotateScript;
         protected float holdingTime = 0; //持续按下的时间
         
         protected Transform Pointer;
 
         private void Start()
         {
-            RotateScript = GetComponent<RotateScript>();
-            Pointer = RotateScript.pointer;
+            rotateScript = GetComponent<RotateScript>();
+            Pointer = rotateScript.pointer;
 
             ChildStart();
         }
@@ -26,14 +27,13 @@ namespace Script
         
         private void Update()
         {
-            
+            if(Input.GetKeyDown(KeyCode.Space) && ableToJump) BeforeJump();
             if (Input.GetKey(KeyCode.Space) && ableToJump) PrepareJump();
             if (Input.GetKeyUp(KeyCode.Space) && ableToJump) Jump();
             
         }
-        
-        protected abstract void ChildUpdate();
 
+        protected abstract void BeforeJump();
         protected abstract void Jump(); //蓄力 跳跃
         protected abstract void PrepareJump();
 

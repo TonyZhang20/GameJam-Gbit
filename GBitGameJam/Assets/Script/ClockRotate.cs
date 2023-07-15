@@ -11,6 +11,7 @@ namespace Script
         public float rotateAngle;
         private float _rotateAngle;
         private bool _ableToRotate = true;
+        
 
         protected override void RotateFunction()
         {

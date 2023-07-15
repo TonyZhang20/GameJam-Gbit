@@ -17,5 +17,11 @@ namespace Script
         {
             AfterJumpFinish?.Invoke();
         }
+
+        public static Action AfterJumpFail;
+        public static void CallAfterJumpFail()
+        {
+            AfterJumpFail?.Invoke();
+        }
     }
 }

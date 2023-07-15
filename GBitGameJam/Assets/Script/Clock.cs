@@ -14,15 +14,42 @@ namespace Script
         [SerializeField] private Vector2 judgmentLength = new Vector2(5, 20);
         private float _jumpAngle;
         private float _randomAngle;
+        private static readonly int Preparing = Animator.StringToHash("Preparing");
+        private static readonly int Shake = Animator.StringToHash("Shake");
+        private Animator _animator;
         
+        private float _forceBeforeJump = 0;
+        private float _holdTimeBeforeJump = 0;
+        
+        protected override void ChildStart()
+        {
+            GenerateStartJumpPoint();
+            _animator = GetComponent<Animator>();
+        }
+
         private void OnEnable()
         {
+            EventHandler.BeforeJumpStart += BeforeJumpStart;
             EventHandler.AfterJumpFinish += JumpAreaChecker;
+            EventHandler.AfterJumpFail += AfterJumpFail;
         }
 
         private void OnDisable()
         {
             EventHandler.AfterJumpFinish -= JumpAreaChecker;
+            EventHandler.BeforeJumpStart -= BeforeJumpStart;
+            EventHandler.AfterJumpFail -= AfterJumpFail;
+        }
+
+        private void BeforeJumpStart()
+        {
+            _forceBeforeJump = angle;
+            _holdTimeBeforeJump = holdingTime;
+        }
+
+        private void AfterJumpFail()
+        {
+            rotateScript.RotateAngle(-angle, Pointer, _holdTimeBeforeJump,true);
         }
         
         protected override void GenerateStartJumpPoint()
@@ -45,38 +72,33 @@ namespace Script
 
         protected override void JumpAreaChecker()
         {
-            // float targetAngle = Quaternion.Angle(_platform.transform.localRotation, Quaternion.identity);
-            // float currentAngle = Quaternion.Angle(Pointer.localRotation, Quaternion.identity);
-            // float dot = Quaternion.Dot(_platform.transform.localRotation, Pointer.localRotation);
-
-           
             float targetAngle = Quaternion.Angle(_platform.transform.localRotation, Pointer.localRotation);
 
             if (targetAngle <= _randomAngle)
             {
                 Destroy(_platform);
                 GenerateStartJumpPoint();
-                Debug.Log("You Made It");
+            }
+            else
+            {
+                EventHandler.CallAfterJumpFinish();
             }
         }   
 
-        protected override void ChildStart()
+        protected override void BeforeJump()
         {
-            GenerateStartJumpPoint();
-        }
-
-        protected override void ChildUpdate()
-        {
-
+            _animator.SetBool(Preparing, true);
         }
 
         protected override void Jump()
         {
             EventHandler.CallBeforeJumpStart(); //跳跃开始
-            CameraShake.Instance.StopShake();   
+            //GetComponent<CameraShake>().StopShake();   
             //DOTween.KillAll();
 
-            RotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, true);
+            rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, true);
+            _animator.SetTrigger(Shake);
+            _animator.SetBool(Preparing, false);
             
             angle = 0;
             holdingTime = 0;
@@ -86,8 +108,6 @@ namespace Script
         {
             angle += force * Time.deltaTime;
             holdingTime += Time.deltaTime;
-
-            if(holdingTime >= 1.5f && !CameraShake.shaking) CameraShake.Instance.StartShake();
         }
         
 

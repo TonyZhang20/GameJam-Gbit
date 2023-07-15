@@ -5,36 +5,35 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     private CameraShakeInstance shake;
-
-    public static CameraShake Instance => instance;
-    private static CameraShake instance;
+    
     
     public static bool shaking = false;
 
     public float magnitude;
     public float roughness;
     public float fadeInTime;
-    
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
-    }
+
+    public CameraShaker cameraShaker;
 
     private void Start()
     {
-
+        if(cameraShaker == null)
+            cameraShaker = GetComponentInParent<CameraShaker>();
+        
+        //StartShake();
     }
 
-    public void StartShake()
+    public void StartShake()    
     {
         shaking = true;
-        shake = CameraShaker.Instance.StartShake(magnitude, roughness, fadeInTime);
+        cameraShaker.ableToShake = true;
+        shake = cameraShaker.StartShake(magnitude, roughness, fadeInTime);
     }
 
     public void StopShake()
     {
         shaking = false;
+        cameraShaker.ableToShake = false;
         if(shake != null)
             shake.StartFadeOut(0.5f);
     }

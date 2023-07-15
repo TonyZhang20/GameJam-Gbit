@@ -33,6 +33,8 @@ namespace EZCameraShake
 
         List<CameraShakeInstance> cameraShakeInstances = new List<CameraShakeInstance>();
 
+        public bool ableToShake = false;
+
         void Awake()
         {
             Instance = this;
@@ -41,6 +43,8 @@ namespace EZCameraShake
 
         void Update()
         {
+            if(!ableToShake) return;
+            
             posAddShake = Vector3.zero;
             rotAddShake = Vector3.zero;
 
