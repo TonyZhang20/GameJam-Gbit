@@ -1,5 +1,7 @@
 using System;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using UnityEngine;
 
 namespace Script
@@ -8,6 +10,8 @@ namespace Script
     {
         private float _rotateAngle = 30f;
         private bool _ableToRotate = true;
+
+        public Transform generatePosition;
         protected override void RotateFunction()
         {
             if (counting >= 0 && _ableToRotate)
@@ -51,27 +55,14 @@ namespace Script
         /// <param name="angle"></param>
         /// <param name="target"></param>
         /// <param name="time"></param>
-        /// <param name="rotateMode"></param>
-        /// <param name="replaceAngle"></param>
-        public override void RotateAngle(float angle,  Transform target, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast, bool replaceAngle = true)
+        public override void RotateAngle(float angle,  Transform target, float time = 0.2f, bool callEvent = false)
         {
-            if (angle >= 120) rotateMode = RotateMode.FastBeyond360;
-
-            float targetAngle = target.eulerAngles.z + angle;
-
-            if (targetAngle >= 180)
-            {
-                targetAngle -= 360;
-            }
-            else if(targetAngle < -180)
-            {
-                targetAngle += 360;
-            }
-            
             DOTween.Kill(_tweenerCore);
-            
-            _tweenerCore = target.DORotate(new Vector3(0, 180, targetAngle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
 
+            _tweenerCore = target.DORotate(new Vector3(0, 0, -angle), time, RotateMode.WorldAxisAdd);
+
+            if (callEvent)
+                _tweenerCore.OnComplete(EventHandler.CallAfterJumpFinish);
         }
         
     }

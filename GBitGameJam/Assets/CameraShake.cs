@@ -23,6 +23,9 @@ public class CameraShake : MonoBehaviour
 
     public void StartShake()
     {
+        CameraShaker.Instance.RestPositionOffset = Camera.main.transform.position;
+        CameraShaker.Instance.RestRotationOffset = Camera.main.transform.rotation.eulerAngles;
+        
         shaking = true;
         shake = CameraShaker.Instance.StartShake(magnitude, roughness, fadeInTime);
     }

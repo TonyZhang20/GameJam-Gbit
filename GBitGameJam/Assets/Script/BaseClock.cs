@@ -25,7 +25,11 @@ namespace Script
         {
             RotateScript = GetComponent<RotateScript>();
             Pointer = RotateScript.pointer;
+
+            ChildStart();
         }
+
+        protected abstract void ChildStart();
         
         private void Update()
         {
@@ -51,12 +55,14 @@ namespace Script
                 Pointer.localScale = Vector3.Lerp(Pointer.localScale, originalScale, originalSpeed * Time.deltaTime);
             }
         }
+        
+        protected abstract void ChildUpdate();
 
         protected abstract void Jump(); //蓄力 跳跃
         protected abstract void PrepareJump();
 
         
         protected abstract void GenerateStartJumpPoint(); //生成跳跃起点
-        protected abstract void GenerateEndJumpPoint();  //生成跳跃终点
+        protected abstract void JumpAreaChecker();  //生成跳跃终点
     }
 }

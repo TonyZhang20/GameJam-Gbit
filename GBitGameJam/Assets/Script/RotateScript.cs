@@ -14,7 +14,7 @@ namespace Script
         protected float counting = 1f;
         protected TweenerCore<Quaternion, Vector3, QuaternionOptions> _tweenerCore;
         protected abstract void RotateFunction();
-        public abstract void RotateAngle(float angle, Transform target, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast, bool replaceAngle = true);
+        public abstract void RotateAngle(float angle, Transform target, float time = 0.2f ,bool callEvent = false);
 
         private void Update()
         {
