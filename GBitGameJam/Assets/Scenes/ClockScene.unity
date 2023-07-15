@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 1194574480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39638, y: 2.4065003, z: 1}
+  m_LocalScale: {x: 0.39638, y: 2.4065, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -332,6 +332,10 @@ MonoBehaviour:
   force: 50
   angle: 0
   ableToJump: 1
+  targetScale: {x: 1.090719, y: 0.3226154, z: 1}
+  originalScale: {x: 0.39638, y: 2.4065, z: 1}
+  scaleSpeed: 3
+  originalSpeed: 10
 --- !u!1 &1279949541
 GameObject:
   m_ObjectHideFlags: 0
