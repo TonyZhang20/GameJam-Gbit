@@ -58,7 +58,7 @@ namespace Script
         public void RotateAngle(float angle, Transform target, float time = 0.2f, bool callEvent = false)
         {
             DOTween.Kill(_tweenerCore);
-
+            
             _tweenerCore = target.DOLocalRotate(-rotateAxis * angle, time, RotateMode.WorldAxisAdd);
 
             if (callEvent)
