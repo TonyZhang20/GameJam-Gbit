@@ -14,6 +14,12 @@ namespace Script
         protected float counting = 1f;
         protected TweenerCore<Quaternion, Vector3, QuaternionOptions> _tweenerCore;
         protected abstract void RotateFunction();
+        /// <summary>
+        /// 顺时针输入负数角度，逆时针输入正数
+        /// </summary>
+        /// <param name="angle"></param>
+        /// <param name="target"></param>
+        /// <param name="time"></param>
         public abstract void RotateAngle(float angle, Transform target, float time = 0.2f ,bool callEvent = false);
 
         private void Update()

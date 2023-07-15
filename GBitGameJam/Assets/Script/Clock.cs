@@ -18,7 +18,7 @@ namespace Script
         private static readonly int Shake = Animator.StringToHash("Shake");
         private Animator _animator;
         
-        private float _forceBeforeJump = 0;
+        [SerializeField] private float _forceBeforeJump = 0;
         private float _holdTimeBeforeJump = 0;
         
         protected override void ChildStart()
@@ -49,12 +49,11 @@ namespace Script
 
         private void AfterJumpFail()
         {
-            rotateScript.RotateAngle(-_forceBeforeJump, Pointer, _holdTimeBeforeJump);
+            rotateScript.RotateAngle(_forceBeforeJump, Pointer, _holdTimeBeforeJump / 2);
         }
         
         protected override void GenerateStartJumpPoint()
         {
-            
             rotateAngle = Random.Range(judgmentArea.x, judgmentArea.y);
             _randomAngle = Random.Range(judgmentLength.x, judgmentLength.y);
 

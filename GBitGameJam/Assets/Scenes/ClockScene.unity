@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,6 +130,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: judgmentArea.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: judgmentArea.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: judgmentLength.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: judgmentLength.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 450380228, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: m_Controller
       value: 
@@ -188,44 +204,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
---- !u!1 &401679060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2571031240274533036, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
-  m_PrefabInstance: {fileID: 284749500}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &401679065
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401679060}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &401679066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401679060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d5df5b585081e14987bd2af70bdec72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!1 &502741504
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,14 +290,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502741504}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.5, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517093295
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +436,7 @@ MonoBehaviour:
   judgmentArea: {x: 30, y: 90}
   rotateAngle: 0
   judgmentLength: {x: 5, y: 20}
+  _forceBeforeJump: 0
 --- !u!114 &944332871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,8 +640,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 20.11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -685,11 +664,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279949541}
-  m_LocalRotation: {x: 0.087411284, y: 0.7192749, z: -0.10255057, w: 0.6815324}
-  m_LocalPosition: {x: -28.059103, y: 17.96838, z: 29.12488}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -27.6, y: 16.7, z: 31.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}

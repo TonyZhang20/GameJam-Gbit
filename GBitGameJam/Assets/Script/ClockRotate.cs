@@ -51,13 +51,7 @@ namespace Script
             _ableToRotate = true;
         }
 
-        /// <summary>
-        /// 顺时针输入负数角度，逆时针输入正数
-        /// </summary>
-        /// <param name="angle"></param>
-        /// <param name="target"></param>
-        /// <param name="time"></param>
-        public override void RotateAngle(float angle,  Transform target, float time = 0.2f, bool callEvent = false)
+        public override void RotateAngle(float angle, Transform target, float time = 0.2f, bool callEvent = false)
         {
             DOTween.Kill(_tweenerCore);
 
@@ -65,7 +59,7 @@ namespace Script
 
             if (callEvent)
                 _tweenerCore.OnComplete(EventHandler.CallAfterJumpFinish);
+            
         }
-        
     }
 }
