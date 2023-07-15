@@ -55,23 +55,9 @@ namespace Script
         /// <param name="replaceAngle"></param>
         public override void RotateAngle(float angle,  Transform target, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast, bool replaceAngle = true)
         {
-            if (angle >= 120) rotateMode = RotateMode.FastBeyond360;
-
-            float targetAngle = target.eulerAngles.z + angle;
-
-            if (targetAngle >= 180)
-            {
-                targetAngle -= 360;
-            }
-            else if(targetAngle < -180)
-            {
-                targetAngle += 360;
-            }
-            
             DOTween.Kill(_tweenerCore);
 
-            //_tweenerCore = target.DORotate(new Vector3(0, 180, targetAngle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
-            _tweenerCore = target.DORotate(new Vector3(0, 180, targetAngle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
+            _tweenerCore = target.DORotate(new Vector3(0, 0, -angle), time, RotateMode.WorldAxisAdd).OnComplete(EventHandler.CallAfterJumpFinish);
         }
         
     }
