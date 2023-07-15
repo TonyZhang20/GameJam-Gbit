@@ -69,9 +69,9 @@ namespace Script
             }
             
             DOTween.Kill(_tweenerCore);
-            
-            _tweenerCore = target.DORotate(new Vector3(0, 180, targetAngle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
 
+            //_tweenerCore = target.DORotate(new Vector3(0, 180, targetAngle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
+            _tweenerCore = target.DORotate(new Vector3(0, 180, targetAngle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
         }
         
     }
