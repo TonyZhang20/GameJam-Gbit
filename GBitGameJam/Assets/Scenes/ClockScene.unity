@@ -131,12 +131,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: angle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: judgmentArea.x
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: judgmentArea.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: _forceBeforeJump
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: judgmentLength.x
@@ -475,6 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 5
   continueRotate: 0
+  Axis: 0
   pointer: {fileID: 1194574482}
   rotateAngle: 0
 --- !u!212 &944332872
