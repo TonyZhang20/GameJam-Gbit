@@ -22,7 +22,7 @@ namespace Script
             CameraShake.Instance.StopShake();   
             //DOTween.KillAll();
             
-            RotateScript.RotateAngle(-angle, holdingTime / 5, RotateMode.FastBeyond360);
+            RotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, RotateMode.FastBeyond360,false);
             
             angle = 0;
             holdingTime = 0;

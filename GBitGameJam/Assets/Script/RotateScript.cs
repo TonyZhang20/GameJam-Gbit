@@ -10,12 +10,11 @@ namespace Script
     public abstract class RotateScript : MonoBehaviour
     {
         [Header("旋转速度")] public float rotateSpeed = 5; //旋转速度
-        public float angle = 0;
-
+        public Transform pointer;
         protected float counting = 1f;
         protected TweenerCore<Quaternion, Vector3, QuaternionOptions> _tweenerCore;
         protected abstract void RotateFunction();
-        public abstract void RotateAngle(float angle, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast);
+        public abstract void RotateAngle(float angle, Transform target, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast, bool replaceAngle = true);
 
         private void Update()
         {
@@ -24,7 +23,7 @@ namespace Script
         
         public float GetCurrentAngle()
         {
-            return angle;
+            return transform.rotation.z;
         }
     }
 }
