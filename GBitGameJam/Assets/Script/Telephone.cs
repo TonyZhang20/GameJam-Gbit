@@ -16,8 +16,8 @@ namespace ns
         [SerializeField] private Vector2 judgmentLength = new Vector2(5, 20);
         private float _jumpAngle;
         private float _randomAngle;
-        private static readonly int Preparing = Animator.StringToHash("Preparing");
-        private static readonly int Shake = Animator.StringToHash("Shake");
+        private static readonly int Preparing = Animator.StringToHash("Empty");
+        private static readonly int In = Animator.StringToHash("PhoneCall");
         private Animator _animator;
 
         [SerializeField] private float _forceBeforeJump = 0;

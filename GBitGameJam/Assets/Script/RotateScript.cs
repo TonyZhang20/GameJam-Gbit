@@ -45,7 +45,10 @@ namespace Script
                 transform.Rotate(rotateAxis, rotateSpeed * Time.deltaTime);
             }
         }
-
+        public void SetAbleToRotate(bool val)
+        {
+            ableToRotate = val;
+        }
         /// <summary>
         /// 顺时针输入负数角度，逆时针输入正数
         /// </summary>

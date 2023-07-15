@@ -2308,6 +2308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 20
   continueRotate: 0
+  Axis: 0
   pointer: {fileID: 1995239209}
 --- !u!114 &2026840573
 MonoBehaviour:
