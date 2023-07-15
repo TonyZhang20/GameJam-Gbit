@@ -146,6 +146,14 @@ PrefabInstance:
       propertyPath: judgmentLength.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 450380227, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: rotateSpeed
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 450380227, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: continueRotate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 450380228, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: m_Controller
       value: 
@@ -197,6 +205,22 @@ PrefabInstance:
     - target: {fileID: 2947029700826791958, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427335846413779529, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427335846413779529, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0000010313328
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427335846413779529, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.001181779
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427335846413779529, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.001181779
       objectReference: {fileID: 0}
     - target: {fileID: 8233351092914701865, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[0]
@@ -450,6 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 5
+  continueRotate: 0
   pointer: {fileID: 1194574482}
   rotateAngle: 0
 --- !u!212 &944332872

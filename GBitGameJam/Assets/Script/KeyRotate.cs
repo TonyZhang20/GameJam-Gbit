@@ -12,7 +12,7 @@ namespace Script
     {
         protected override void RotateFunction()
         {
-            transform.localEulerAngles += new Vector3(0, 0, rotateSpeed * Time.deltaTime);
+            
         }
     }
 }

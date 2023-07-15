@@ -29,8 +29,8 @@ namespace Script
 
         private void OnEnable()
         {
-            EventHandler.BeforeJumpStart += BeforeJumpStart;
             EventHandler.AfterJumpFinish += JumpAreaChecker;
+            EventHandler.BeforeJumpStart += BeforeJumpStart;
             EventHandler.AfterJumpFail += AfterJumpFail;
         }
 
@@ -92,8 +92,6 @@ namespace Script
         protected override void Jump()
         {
             EventHandler.CallBeforeJumpStart(); //跳跃开始
-            //GetComponent<CameraShake>().StopShake();   
-            //DOTween.KillAll();
 
             rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, true);
             _animator.SetTrigger(Shake);
@@ -105,8 +103,8 @@ namespace Script
 
         protected override void PrepareJump()
         {
-            angle += force * Time.deltaTime;
-            holdingTime += Time.deltaTime;
+            angle += force * Time.unscaledDeltaTime;
+            holdingTime += Time.unscaledDeltaTime;
         }
         
 

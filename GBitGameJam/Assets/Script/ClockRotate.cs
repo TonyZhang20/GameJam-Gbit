@@ -10,27 +10,25 @@ namespace Script
     {
         public float rotateAngle;
         private float _rotateAngle;
-        private bool _ableToRotate = true;
-        [SerializeField] private bool continueRotate;
-
+        
         protected override void RotateFunction()
         {
-            if (continueRotate)
+            base.RotateFunction();
+
+            if (!continueRotate)
             {
-                
-            }
-            else
-            {
-                if (counting >= 0 && _ableToRotate)
+                if (counting >= 0 && ableToRotate)
                 {
                     counting -= Time.deltaTime;
                 }
-                else if(_ableToRotate)
+                else if(ableToRotate) 
                 {
                     RotateAngle(_rotateAngle, transform);
                     counting = 1;
                 }
+
             }
+
         }
 
         private void OnEnable()
@@ -49,13 +47,13 @@ namespace Script
         private void DuringJump()
         {
             _rotateAngle = 0;
-            _ableToRotate = false;
+            ableToRotate = false;
         }
 
         private void FinishJump()
         {
             _rotateAngle = rotateAngle;
-            _ableToRotate = true;
+            ableToRotate = true;
         }
     }
 }
