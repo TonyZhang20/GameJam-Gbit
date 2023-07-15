@@ -6,7 +6,7 @@ namespace Script
 {
     public class ClockRotate : RotateScript
     {
-        private float _rotateAngle = -30f;
+        private float _rotateAngle = 30f;
         private bool _ableToRotate = true;
         protected override void RotateFunction()
         {
@@ -41,7 +41,7 @@ namespace Script
 
         private void FinishJump()
         {
-            _rotateAngle = -30;
+            _rotateAngle = 30;
             _ableToRotate = true;
         }
 
@@ -50,15 +50,27 @@ namespace Script
         /// </summary>
         /// <param name="angle"></param>
         /// <param name="time"></param>
-        public override void RotateAngle(float angle, float time = 0.2f)
+        public override void RotateAngle(float angle, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast)
         {
-            DOTween.KillAll();
-            
             this.angle += angle;
+            
+            if (angle >= 120) rotateMode = RotateMode.FastBeyond360;
+
+            if (this.angle >= 180)
+            {
+                this.angle -= 360;
+            }
+            else if(this.angle < -180)
+            {
+                this.angle += 360;
+            }
+
             DOTween.Kill(_tweenerCore);
             
-            _tweenerCore = transform.DORotateQuaternion(Quaternion.AngleAxis(this.angle, new Vector3(0, 0, 1)), time).OnComplete(EventHandler.CallAfterJumpFinish);
+            _tweenerCore = transform.DORotate(new Vector3(0, 180, this.angle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
+            
             //transform.Rotate(new Vector3(0,0,1), angle);
         }
+        
     }
 }

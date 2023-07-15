@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using UnityEngine;
@@ -12,13 +13,18 @@ namespace Script
         public float angle = 0;
 
         protected float counting = 1f;
-        protected TweenerCore<Quaternion, Quaternion, NoOptions> _tweenerCore;
+        protected TweenerCore<Quaternion, Vector3, QuaternionOptions> _tweenerCore;
         protected abstract void RotateFunction();
-        public abstract void RotateAngle(float angle, float time = 0.2f);
+        public abstract void RotateAngle(float angle, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast);
 
         private void Update()
         {
             RotateFunction();
+        }
+        
+        public float GetCurrentAngle()
+        {
+            return angle;
         }
     }
 }
