@@ -11,18 +11,25 @@ namespace Script
         public float rotateAngle;
         private float _rotateAngle;
         private bool _ableToRotate = true;
-        
+        [SerializeField] private bool continueRotate;
 
         protected override void RotateFunction()
         {
-            if (counting >= 0 && _ableToRotate)
+            if (continueRotate)
             {
-                counting -= Time.deltaTime;
+                
             }
-            else if(_ableToRotate)
+            else
             {
-                RotateAngle(_rotateAngle, transform);
-                counting = 1;
+                if (counting >= 0 && _ableToRotate)
+                {
+                    counting -= Time.deltaTime;
+                }
+                else if(_ableToRotate)
+                {
+                    RotateAngle(_rotateAngle, transform);
+                    counting = 1;
+                }
             }
         }
 
@@ -49,17 +56,6 @@ namespace Script
         {
             _rotateAngle = rotateAngle;
             _ableToRotate = true;
-        }
-
-        public override void RotateAngle(float angle, Transform target, float time = 0.2f, bool callEvent = false)
-        {
-            DOTween.Kill(_tweenerCore);
-
-            _tweenerCore = target.DOLocalRotate(new Vector3(-angle, 0, 0), time, RotateMode.WorldAxisAdd);
-
-            if (callEvent)
-                _tweenerCore.OnComplete(EventHandler.CallAfterJumpFinish);
-            
         }
     }
 }

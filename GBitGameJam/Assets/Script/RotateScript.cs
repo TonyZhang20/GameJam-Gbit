@@ -11,16 +11,25 @@ namespace Script
     {
         [Header("旋转速度")] public float rotateSpeed = 5; //旋转速度
         public Transform pointer;
-        protected float counting = 1f;
+        protected float counting = 1f; //倒计时时间
         protected TweenerCore<Quaternion, Vector3, QuaternionOptions> _tweenerCore;
         protected abstract void RotateFunction();
+
         /// <summary>
         /// 顺时针输入负数角度，逆时针输入正数
         /// </summary>
         /// <param name="angle"></param>
         /// <param name="target"></param>
         /// <param name="time"></param>
-        public abstract void RotateAngle(float angle, Transform target, float time = 0.2f ,bool callEvent = false);
+        public void RotateAngle(float angle, Transform target, float time = 0.2f, bool callEvent = false)
+        {
+            DOTween.Kill(_tweenerCore);
+
+            _tweenerCore = target.DOLocalRotate(new Vector3(-angle, 0, 0), time, RotateMode.WorldAxisAdd);
+
+            if (callEvent)
+                _tweenerCore.OnComplete(EventHandler.CallAfterJumpFinish);
+        }
 
         private void Update()
         {
