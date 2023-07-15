@@ -19,11 +19,12 @@ namespace Script
         public float scaleSpeed = 3;
         public float originalSpeed = 10;
         
-        public Transform pointer;
+        protected Transform Pointer;
 
         private void Start()
         {
             RotateScript = GetComponent<RotateScript>();
+            Pointer = RotateScript.pointer;
         }
         
         private void Update()
@@ -43,11 +44,11 @@ namespace Script
 
             if (scaling)
             {
-                pointer.localScale = Vector3.Lerp(pointer.localScale, targetScale, scaleSpeed * Time.deltaTime);
+                Pointer.localScale = Vector3.Lerp(Pointer.localScale, targetScale, scaleSpeed * Time.deltaTime);
             }
             else
             {
-                pointer.localScale = Vector3.Lerp(pointer.localScale, originalScale, originalSpeed * Time.deltaTime);
+                Pointer.localScale = Vector3.Lerp(Pointer.localScale, originalScale, originalSpeed * Time.deltaTime);
             }
         }
 

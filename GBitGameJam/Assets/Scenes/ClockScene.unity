@@ -348,14 +348,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f361b54b8d55d40861ee8332b594e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 50
+  force: 120
   angle: 0
   ableToJump: 1
   targetScale: {x: 1.090719, y: 0.3226154, z: 1}
-  originalScale: {x: 1, y: 1, z: 1}
+  originalScale: {x: 0.39638, y: 2.4065, z: 1}
   scaleSpeed: 3
   originalSpeed: 10
-  pointer: {fileID: 0}
 --- !u!114 &944332871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 5
   angle: 0
+  pointer: {fileID: 1194574482}
 --- !u!1 &1194574480
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ namespace Script
             }
             else if(_ableToRotate)
             {
-                RotateAngle(_rotateAngle);
+                RotateAngle(_rotateAngle, transform);
                 counting = 1;
             }
         }
@@ -49,27 +49,29 @@ namespace Script
         /// 顺时针输入负数角度，逆时针输入正数
         /// </summary>
         /// <param name="angle"></param>
+        /// <param name="target"></param>
         /// <param name="time"></param>
-        public override void RotateAngle(float angle, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast)
+        /// <param name="rotateMode"></param>
+        /// <param name="replaceAngle"></param>
+        public override void RotateAngle(float angle,  Transform target, float time = 0.2f, RotateMode rotateMode = RotateMode.Fast, bool replaceAngle = true)
         {
-            this.angle += angle;
-            
             if (angle >= 120) rotateMode = RotateMode.FastBeyond360;
 
-            if (this.angle >= 180)
-            {
-                this.angle -= 360;
-            }
-            else if(this.angle < -180)
-            {
-                this.angle += 360;
-            }
+            float targetAngle = target.eulerAngles.z + angle;
 
+            if (targetAngle >= 180)
+            {
+                targetAngle -= 360;
+            }
+            else if(targetAngle < -180)
+            {
+                targetAngle += 360;
+            }
+            
             DOTween.Kill(_tweenerCore);
             
-            _tweenerCore = transform.DORotate(new Vector3(0, 180, this.angle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
-            
-            //transform.Rotate(new Vector3(0,0,1), angle);
+            _tweenerCore = target.DORotate(new Vector3(0, 180, targetAngle), time, rotateMode).OnComplete(EventHandler.CallAfterJumpFinish);
+
         }
         
     }
