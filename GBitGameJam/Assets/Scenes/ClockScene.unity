@@ -130,10 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 401679062, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: ableToShake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: angle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
+      propertyPath: redAngle
+      value: 
+      objectReference: {fileID: 502741506}
     - target: {fileID: 450380226, guid: 94eb76fafd1f73c43bdce066f789968f, type: 3}
       propertyPath: judgmentArea.x
       value: 30
@@ -263,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502741506}
   - component: {fileID: 502741505}
+  - component: {fileID: 502741507}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -347,6 +356,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &502741507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502741504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &517093295
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +458,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &944332868
@@ -481,12 +510,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 120
   angle: 0
+  maxAngle: 180
   ableToJump: 1
   rotateScript: {fileID: 0}
   judgmentArea: {x: 30, y: 90}
   rotateAngle: 0
   judgmentLength: {x: 5, y: 20}
-  _forceBeforeJump: 0
+  forceBeforeJump: 0
+  redAngle: {fileID: 0}
+  redAngleType: 0
 --- !u!114 &944332871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +535,7 @@ MonoBehaviour:
   continueRotate: 0
   Axis: 0
   pointer: {fileID: 1194574482}
+  totalAngle: 0
   rotateAngle: 0
 --- !u!212 &944332872
 SpriteRenderer:

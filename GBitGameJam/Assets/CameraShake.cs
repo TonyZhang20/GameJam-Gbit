@@ -20,7 +20,7 @@ public class CameraShake : MonoBehaviour
         if(cameraShaker == null)
             cameraShaker = GetComponentInParent<CameraShaker>();
         
-        //StartShake();
+        StartShake();
     }
 
     public void StartShake()    

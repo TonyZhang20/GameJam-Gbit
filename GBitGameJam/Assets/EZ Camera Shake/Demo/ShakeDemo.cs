@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using EZCameraShake;
-using UnityEngine.SceneManagement;
 
 public class ShakeDemo : MonoBehaviour 
 {
@@ -19,7 +18,7 @@ public class ShakeDemo : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            //Application.LoadLevel(Application.loadedLevel);
+            Application.LoadLevel(Application.loadedLevel);
         }
 
         Slider s = delegate(float val, string prefix, float min, float max, int pad)
