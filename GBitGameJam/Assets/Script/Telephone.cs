@@ -27,27 +27,38 @@ namespace ns
         {
             _animator = GetComponent<Animator>();
             rotateScript.SetAbleToRotate(false);
-            StartCoroutine(CallNum3());
+            StartCoroutine(StartCall());
         }
-        private IEnumerator CallNum3()
+        private IEnumerator CallNum5()
         {
             yield return new WaitForSeconds(0.1f);
-            rotateScript.RotateAngle(-132, Pointer, 1f);
-            yield return new WaitForSeconds(0.9f);
+            rotateScript.RotateAngle(-304, Pointer, 1f);
+            yield return new WaitForSeconds(1f);
+        }
+        private IEnumerator StartCall()
+        {
+            yield return StartCoroutine(CallNum5());
+            rotateScript.RotateAngle(179, Pointer, 0.6f);
+            yield return new WaitForSeconds(0.6f);
             EnableRotate();
             GenerateStartJumpPoint();
         }
         private void OnEnable()
         {
+            //EventHandler.AfterJumpFinish += AfterJumpFinish;
             EventHandler.AfterJumpFinish += JumpAreaChecker;
             EventHandler.BeforeJumpStart += BeforeJumpStart;
             EventHandler.AfterJumpFail += AfterJumpFail;
+            EventHandler.AfterFailJumpFinish += AfterJumpFailFinish;
         }
+
         private void OnDisable()
         {
+            //EventHandler.AfterJumpFinish -= AfterJumpFinish;
             EventHandler.AfterJumpFinish -= JumpAreaChecker;
             EventHandler.BeforeJumpStart -= BeforeJumpStart;
             EventHandler.AfterJumpFail -= AfterJumpFail;
+            EventHandler.AfterFailJumpFinish -= AfterJumpFailFinish;
         }
         public void EnableRotate()                            
         {
@@ -79,16 +90,16 @@ namespace ns
             rotateAngle = Random.Range(judgmentArea.x, judgmentArea.y);
             _randomAngle = Random.Range(judgmentLength.x, judgmentLength.y);
 
-            _platform = Instantiate((GameObject)Resources.Load("Prefabs/Platform/�绰ת��"), transform);
+            _platform = Instantiate((GameObject)Resources.Load("Prefabs/Platform/PhonePlat"), transform);
 
             _platform.GetComponent<MeshRenderer>().enabled = false;
 
             _platform.transform.rotation = Pointer.rotation;
 
-            _platform.transform.Rotate(new Vector3(0, 0,rotateAngle));
+            _platform.transform.Rotate(new Vector3(0, 0 ,rotateAngle));
 
             Vector3 scale = _platform.transform.GetChild(0).localScale;
-            _platform.transform.GetChild(0).localScale = new Vector3(scale.x * _randomAngle / 5f, scale.y, scale.z);
+            _platform.transform.GetChild(0).localScale = new Vector3(scale.x, scale.y * _randomAngle / 5f, scale.z);
         }
 
         protected override void JumpAreaChecker()
@@ -99,6 +110,8 @@ namespace ns
             {
                 Destroy(_platform);
                 GenerateStartJumpPoint();
+
+                rotateScript.totalAngle += _forceBeforeJump;
             }
             else
             {
@@ -113,7 +126,7 @@ namespace ns
 
         protected override void Jump()
         {
-            EventHandler.CallBeforeJumpStart(); //��Ծ��ʼ
+            EventHandler.CallBeforeJumpStart(); //
 
             rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, EventHandler.CallAfterJumpFinish);
             //_animator.SetTrigger(Shake);
@@ -121,10 +134,18 @@ namespace ns
 
             angle = 0;
             holdingTime = 0;
+
+            _animator.SetBool("Holding", false);
         }
 
         protected override void PrepareJump()
         {
+
+            //var clipName = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            //_animator.Play(clipName, 0, 0);
+
+            _animator.SetBool("Holding", true);
+
             angle += force * Time.unscaledDeltaTime;
             holdingTime += Time.unscaledDeltaTime;
         }
