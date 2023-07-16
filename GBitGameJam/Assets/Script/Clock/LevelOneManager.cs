@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Script
 {
@@ -6,6 +7,7 @@ namespace Script
     {
         public static LevelOneManager Instance => _instance;
         private static LevelOneManager _instance;
+        public int index;
 
         public int zoomTime;
         public int currentZoomTime;
@@ -34,6 +36,13 @@ namespace Script
         public void TimeGoes()
         {
             currentZoomTime--;
+            if (currentZoomTime <= -2)
+                LoadNextLevel();
+        }
+
+        public void LoadNextLevel()
+        {
+            SceneManager.LoadScene(index);
         }
     }
 }

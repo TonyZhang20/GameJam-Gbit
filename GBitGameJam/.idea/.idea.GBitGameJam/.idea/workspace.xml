@@ -16,6 +16,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/90/c052e128/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/b4/37adb190/RotateMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Animator/AnimatorTogether.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Clock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Clock/LevelOneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Clock/Timeclock.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,7 +98,7 @@
       <updated>1689377224560</updated>
       <workItem from="1689377229500" duration="10668000" />
       <workItem from="1689391503970" duration="19564000" />
-      <workItem from="1689414375886" duration="29397000" />
+      <workItem from="1689414375886" duration="31303000" />
     </task>
     <servers />
   </component>
