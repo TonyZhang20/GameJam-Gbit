@@ -2,6 +2,7 @@ using Script;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace ns
 {
@@ -23,31 +24,45 @@ namespace ns
         [SerializeField] private float _forceBeforeJump = 0;
         private float _holdTimeBeforeJump = 0;
 
+        [SerializeField] private SpriteRenderer hands;
+        DG.Tweening.Core.TweenerCore<Color, Color, DG.Tweening.Plugins.Options.ColorOptions> tweens;
+
         protected override void ChildStart()
         {
             _animator = GetComponent<Animator>();
             rotateScript.SetAbleToRotate(false);
-            StartCoroutine(CallNum3());
+            StartCoroutine(StartCall());
         }
-        private IEnumerator CallNum3()
+        private IEnumerator CallNum5()
         {
             yield return new WaitForSeconds(0.1f);
-            rotateScript.RotateAngle(-132, Pointer, 1f);
-            yield return new WaitForSeconds(0.9f);
+            rotateScript.RotateAngle(-304, Pointer, 1f);
+            yield return new WaitForSeconds(1f);
+        }
+        private IEnumerator StartCall()
+        {
+            yield return StartCoroutine(CallNum5());
+            rotateScript.RotateAngle(179, Pointer, 0.6f);
+            yield return new WaitForSeconds(0.6f);
             EnableRotate();
             GenerateStartJumpPoint();
         }
         private void OnEnable()
         {
+            //EventHandler.AfterJumpFinish += AfterJumpFinish;
             EventHandler.AfterJumpFinish += JumpAreaChecker;
             EventHandler.BeforeJumpStart += BeforeJumpStart;
             EventHandler.AfterJumpFail += AfterJumpFail;
+            EventHandler.AfterFailJumpFinish += AfterJumpFailFinish;
         }
+
         private void OnDisable()
         {
+            //EventHandler.AfterJumpFinish -= AfterJumpFinish;
             EventHandler.AfterJumpFinish -= JumpAreaChecker;
             EventHandler.BeforeJumpStart -= BeforeJumpStart;
             EventHandler.AfterJumpFail -= AfterJumpFail;
+            EventHandler.AfterFailJumpFinish -= AfterJumpFailFinish;
         }
         public void EnableRotate()                            
         {
@@ -79,16 +94,16 @@ namespace ns
             rotateAngle = Random.Range(judgmentArea.x, judgmentArea.y);
             _randomAngle = Random.Range(judgmentLength.x, judgmentLength.y);
 
-            _platform = Instantiate((GameObject)Resources.Load("Prefabs/Platform/�绰ת��"), transform);
+            _platform = Instantiate((GameObject)Resources.Load("Prefabs/Platform/PhonePlat"), transform);
 
             _platform.GetComponent<MeshRenderer>().enabled = false;
 
             _platform.transform.rotation = Pointer.rotation;
 
-            _platform.transform.Rotate(new Vector3(0, 0,rotateAngle));
+            _platform.transform.Rotate(new Vector3(0, 0 ,rotateAngle));
 
             Vector3 scale = _platform.transform.GetChild(0).localScale;
-            _platform.transform.GetChild(0).localScale = new Vector3(scale.x * _randomAngle / 5f, scale.y, scale.z);
+            _platform.transform.GetChild(0).localScale = new Vector3(scale.x, scale.y * _randomAngle / 5f, scale.z);
         }
 
         protected override void JumpAreaChecker()
@@ -99,6 +114,8 @@ namespace ns
             {
                 Destroy(_platform);
                 GenerateStartJumpPoint();
+
+                rotateScript.totalAngle += _forceBeforeJump;
             }
             else
             {
@@ -109,11 +126,15 @@ namespace ns
         protected override void BeforeJump()
         {
             //_animator.SetBool(Preparing, true);
+            var color = hands.color;
+            tweens?.Kill();
+            tweens = hands.DOColor(new Color(color.r, color.g, color.b, 1), 1);
+            Debug.Log("What");
         }
 
         protected override void Jump()
         {
-            EventHandler.CallBeforeJumpStart(); //��Ծ��ʼ
+            EventHandler.CallBeforeJumpStart(); //
 
             rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, EventHandler.CallAfterJumpFinish);
             //_animator.SetTrigger(Shake);
@@ -121,10 +142,24 @@ namespace ns
 
             angle = 0;
             holdingTime = 0;
+            tweens?.Kill();
+            var color = hands.color;
+            tweens = hands.DOColor(new Color(color.r, color.g, color.b, 0.01f), 0.4f).OnComplete(SetColor);
+
+        }
+
+        private void SetColor()
+        {
+            //var color = hands.color;
+            //hands.color = new Color(color.r, color.g, color.b, 0);
         }
 
         protected override void PrepareJump()
         {
+
+            //var clipName = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            //_animator.Play(clipName, 0, 0);
+
             angle += force * Time.unscaledDeltaTime;
             holdingTime += Time.unscaledDeltaTime;
         }
