@@ -2,6 +2,7 @@ using Script;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace ns
 {
@@ -22,6 +23,9 @@ namespace ns
 
         [SerializeField] private float _forceBeforeJump = 0;
         private float _holdTimeBeforeJump = 0;
+
+        [SerializeField] private SpriteRenderer hands;
+        DG.Tweening.Core.TweenerCore<Color, Color, DG.Tweening.Plugins.Options.ColorOptions> tweens;
 
         protected override void ChildStart()
         {
@@ -122,6 +126,10 @@ namespace ns
         protected override void BeforeJump()
         {
             //_animator.SetBool(Preparing, true);
+            var color = hands.color;
+            tweens?.Kill();
+            tweens = hands.DOColor(new Color(color.r, color.g, color.b, 1), 1);
+            Debug.Log("What");
         }
 
         protected override void Jump()
@@ -134,8 +142,16 @@ namespace ns
 
             angle = 0;
             holdingTime = 0;
+            tweens?.Kill();
+            var color = hands.color;
+            tweens = hands.DOColor(new Color(color.r, color.g, color.b, 0.01f), 0.4f).OnComplete(SetColor);
 
-            _animator.SetBool("Holding", false);
+        }
+
+        private void SetColor()
+        {
+            //var color = hands.color;
+            //hands.color = new Color(color.r, color.g, color.b, 0);
         }
 
         protected override void PrepareJump()
@@ -143,8 +159,6 @@ namespace ns
 
             //var clipName = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             //_animator.Play(clipName, 0, 0);
-
-            _animator.SetBool("Holding", true);
 
             angle += force * Time.unscaledDeltaTime;
             holdingTime += Time.unscaledDeltaTime;

@@ -27462,7 +27462,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 495ba3f8c5708e84784f865f6750b810, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -27579,6 +27579,7 @@ MonoBehaviour:
   rotateAngle: 0
   judgmentLength: {x: 12, y: 20}
   _forceBeforeJump: 0
+  hands: {fileID: 6991377078023786848}
 --- !u!95 &6991377079635010839
 Animator:
   serializedVersion: 4
@@ -27587,7 +27588,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6991377079635010830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a931a44a458ce5a449fab733b55fdb9d, type: 2}
   m_CullingMode: 0
