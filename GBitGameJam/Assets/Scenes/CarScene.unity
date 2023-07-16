@@ -1018,7 +1018,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1245506967
@@ -2256,7 +2256,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2026840570
@@ -2310,6 +2310,7 @@ MonoBehaviour:
   continueRotate: 0
   Axis: 0
   pointer: {fileID: 1995239209}
+  totalAngle: 0
 --- !u!114 &2026840573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2324,9 +2325,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: -200
   angle: 0
+  maxAngle: 180
   ableToJump: 1
   rotateScript: {fileID: 0}
   judgmentArea: {x: 30, y: 90}
   rotateAngle: 0
   judgmentLength: {x: 5, y: 20}
-  _forceBeforeJump: 0
+  forceBeforeJump: 0
+  redAngle: {fileID: 0}
+  redAngleType: 0
