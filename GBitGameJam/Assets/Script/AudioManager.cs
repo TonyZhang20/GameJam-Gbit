@@ -191,6 +191,7 @@ public enum Sound
     ReachSuccess,
     BubbleExplore,
     Sleeping,
+    PhoneRotate,
     None
 }
 

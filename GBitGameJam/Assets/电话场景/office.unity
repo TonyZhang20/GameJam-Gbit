@@ -213,27 +213,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6708192458009508986, guid: bd8dfb9e21a8c7a42883beaf169bdd5b,
-        type: 3}
-      propertyPath: soundAudioClips.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708192458009508986, guid: bd8dfb9e21a8c7a42883beaf169bdd5b,
-        type: 3}
-      propertyPath: soundAudioClips.Array.data[10].group
-      value: 
-      objectReference: {fileID: -3664427717505151307, guid: af6fdda0892d299489bb2e9e598132d2,
-        type: 2}
-    - target: {fileID: 6708192458009508986, guid: bd8dfb9e21a8c7a42883beaf169bdd5b,
-        type: 3}
-      propertyPath: soundAudioClips.Array.data[10].sound
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708192458009508986, guid: bd8dfb9e21a8c7a42883beaf169bdd5b,
-        type: 3}
-      propertyPath: soundAudioClips.Array.data[10].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b732977a167fd5244b4019622ef001df, type: 3}
     - target: {fileID: 6708192458009508987, guid: bd8dfb9e21a8c7a42883beaf169bdd5b,
         type: 3}
       propertyPath: m_Name
@@ -29685,6 +29664,7 @@ MonoBehaviour:
   totalAngle: 0
   Finger: {fileID: 6991377077749875864}
   rotateAngle: 0
+  range: 30
 --- !u!114 &6991377079635010837
 MonoBehaviour:
   m_ObjectHideFlags: 0

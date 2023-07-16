@@ -80,5 +80,12 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: b732977a167fd5244b4019622ef001df, type: 3}
     group: {fileID: -3664427717505151307, guid: af6fdda0892d299489bb2e9e598132d2,
       type: 2}
+  - sound: 12
+    audioClip: {fileID: 8300000, guid: 8ce11961e57ec9a44aa4adb619816079, type: 3}
+    group: {fileID: 6060557402419135766, guid: af6fdda0892d299489bb2e9e598132d2, type: 2}
+  - sound: 11
+    audioClip: {fileID: 8300000, guid: 224b5621b9ef68e4081f64935b66080d, type: 3}
+    group: {fileID: -3664427717505151307, guid: af6fdda0892d299489bb2e9e598132d2,
+      type: 2}
   _audioSourceList: []
   audioVolume: -17

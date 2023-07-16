@@ -15,6 +15,8 @@ namespace ns
         private float _rotateAngle;
         private Quaternion _fingerWorldRotation;
 
+        public float range = 90;
+        private AudioSource _audioSource;
         protected override void RotateFunction()
         {
             base.RotateFunction();
@@ -34,6 +36,13 @@ namespace ns
                 }
 
             }
+            
+
+            if (_audioSource == null || _audioSource.time >= 1.3f)
+            {
+                if(_audioSource!= null) _audioSource.Stop();
+                _audioSource = AudioManager.Instance.PlayAudio(Sound.PhoneRotate);
+            }
 
         }
 
@@ -42,6 +51,7 @@ namespace ns
             _rotateAngle = rotateAngle;
             EventHandler.BeforeJumpStart += DuringJump;
             EventHandler.AfterJumpFinish += FinishJump;
+            EventHandler.BeforeJumpStart += StopAudio;
             _fingerWorldRotation = Finger.rotation;
         }
 
@@ -49,6 +59,7 @@ namespace ns
         {
             EventHandler.BeforeJumpStart -= DuringJump;
             EventHandler.AfterJumpFinish -= FinishJump;
+            EventHandler.BeforeJumpStart -= StopAudio;
         }
         protected override void ChildUpdate()
         {
@@ -59,21 +70,16 @@ namespace ns
         {
             if (totalAngle < -190)
             {
-                //正转一圈
                 totalAngle += 360;
                 LevelTwoManager.Instance.TimeGoes();
             }
             else if (totalAngle > 170)
             {
                 Debug.Log(1);
-                //反转一圈
                 LevelTwoManager.Instance.ZoomOut();
                 totalAngle -= 360;
-                //if (counting >= 1)
-                //{
-                //    GetComponent<Clock>().redAngleType = RedAngleType.AfterJump;
-                //}
             }
+
         }
 
         private void DuringJump()
@@ -86,6 +92,12 @@ namespace ns
         {
             _rotateAngle = rotateAngle;
             ableToRotate = true;
+            _audioSource.Play();
+        }
+
+        private void StopAudio()
+        {
+            _audioSource.Stop();
         }
     }
 }
