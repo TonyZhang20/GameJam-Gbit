@@ -95,24 +95,29 @@ namespace Script
             {
                 Destroy(_platform);
                 GenerateStartJumpPoint();
-
+                AudioManager.Instance.PlayAudio(Sound.ReachSuccess);
                 rotateScript.totalAngle += forceBeforeJump;
                 
             }
             else
             {
                 EventHandler.CallAfterJumpFail();
+                AudioManager.Instance.PlayAudio(Sound.ReachFail);
             }
         }
 
+        private AudioSource _audioSource;
+
         protected override void BeforeJump()
         {
-            
+            _audioSource = AudioManager.Instance.PlayAudio(Sound.PrepareNormal);
         }
 
         protected override void Jump()
         {
+            _audioSource.Stop();
             EventHandler.CallBeforeJumpStart(); //跳跃开始
+            AudioManager.Instance.PlayAudio(Sound.Jump);
 
             rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, EventHandler.CallAfterJumpFinish);
 
@@ -125,11 +130,13 @@ namespace Script
             angle = 0;
             holdingTime = 0;
             ableToJump = false;
+            
         }
 
         protected override void PrepareJump()
         {
             angle += force * Time.unscaledDeltaTime;
+            
             if (angle > maxAngle)
             {
                 angle = maxAngle;

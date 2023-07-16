@@ -16,5 +16,10 @@ namespace ns
         {
             SceneManager.LoadSceneAsync(n);
         }
+
+        public void LoadScene(int index)
+        {
+            SceneManager.LoadScene(index);
+        }
     }
 }

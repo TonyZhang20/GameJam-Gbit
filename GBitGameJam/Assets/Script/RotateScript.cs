@@ -23,6 +23,7 @@ namespace Script
         protected TweenerCore<Quaternion, Vector3, QuaternionOptions> _tweenerCore;
         protected bool ableToRotate = true;
         protected Vector3 rotateAxis;
+        protected float MovedAngle = 0f;
 
         public float totalAngle;
         
@@ -45,6 +46,7 @@ namespace Script
         {
             if (continueRotate && ableToRotate)
             {
+                MovedAngle += Mathf.Abs(rotateSpeed * Time.deltaTime);
                 totalAngle += rotateSpeed * Time.deltaTime;
                 transform.Rotate(rotateAxis, rotateSpeed * Time.deltaTime);
             }
