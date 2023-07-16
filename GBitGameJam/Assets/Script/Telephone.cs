@@ -116,22 +116,27 @@ namespace ns
                 GenerateStartJumpPoint();
 
                 rotateScript.totalAngle += _forceBeforeJump;
+                AudioManager.Instance.PlayAudio(Sound.ReachSuccess);
             }
             else
             {
+                AudioManager.Instance.PlayAudio(Sound.ReachFail);
                 EventHandler.CallAfterJumpFail();
             }
         }
 
+        private AudioSource _audioSource;
         protected override void BeforeJump()
         {
             //_animator.SetBool(Preparing, true);
             var color = hands.color;
             tweens?.Kill();
             tweens = hands.DOColor(new Color(color.r, color.g, color.b, 1), 1);
-            Debug.Log("What");
+
+            _audioSource = AudioManager.Instance.PlayAudio(Sound.PrepareNormal);
         }
 
+        private AudioSource jumpAudio;
         protected override void Jump()
         {
             EventHandler.CallBeforeJumpStart(); //
@@ -145,7 +150,16 @@ namespace ns
             tweens?.Kill();
             var color = hands.color;
             tweens = hands.DOColor(new Color(color.r, color.g, color.b, 0.01f), 0.4f).OnComplete(SetColor);
-
+            if (jumpAudio != null && !jumpAudio.isPlaying)
+            {
+                jumpAudio = AudioManager.Instance.PlayAudio(Sound.Jump);
+            }
+            else if (jumpAudio == null)
+            {
+                jumpAudio = AudioManager.Instance.PlayAudio(Sound.Jump);
+            }
+            
+            if(_audioSource != null) _audioSource.Stop();
         }
 
         private void SetColor()
@@ -159,6 +173,7 @@ namespace ns
 
             //var clipName = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             //_animator.Play(clipName, 0, 0);
+            
 
             angle += force * Time.unscaledDeltaTime;
             holdingTime += Time.unscaledDeltaTime;

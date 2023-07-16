@@ -13,6 +13,8 @@ namespace Script
         public float rotateAngle;
         private float _rotateAngle;
 
+        private AudioSource _audioSource;
+        
         protected override void RotateFunction()
         {
             base.RotateFunction();
@@ -30,7 +32,8 @@ namespace Script
                 }
 
             }
-
+            
+            
         }
 
         private void OnEnable()
@@ -54,7 +57,7 @@ namespace Script
         {
             if (totalAngle < -120)
             {
-                //正转一圈
+                //锟斤拷转一圈
                 //totalAngle += 58;
                 LevelThreeManager.Instance.TimeGoes();
             }
@@ -71,7 +74,7 @@ namespace Script
                 //success
 
 
-                //反转一圈
+                //锟斤拷转一圈
                 //totalAngle -= 360;
                 //if (counting >= 1)
                 //{

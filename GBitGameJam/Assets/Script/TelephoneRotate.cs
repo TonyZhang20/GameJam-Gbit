@@ -38,7 +38,7 @@ namespace ns
             }
             
 
-            if (_audioSource == null || _audioSource.time >= 1.3f)
+            if (_audioSource == null || !_audioSource.isPlaying)
             {
                 if(_audioSource!= null) _audioSource.Stop();
                 _audioSource = AudioManager.Instance.PlayAudio(Sound.PhoneRotate);
@@ -52,6 +52,7 @@ namespace ns
             EventHandler.BeforeJumpStart += DuringJump;
             EventHandler.AfterJumpFinish += FinishJump;
             EventHandler.BeforeJumpStart += StopAudio;
+
             _fingerWorldRotation = Finger.rotation;
         }
 
@@ -99,6 +100,7 @@ namespace ns
         {
             _audioSource.Stop();
         }
+        
     }
 }
 

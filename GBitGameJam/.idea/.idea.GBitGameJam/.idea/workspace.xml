@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c202c272-13f1-4578-b1d7-d74292e879f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GBitGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GBitGameJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/AudioManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/TelephoneRotate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/TelephoneRotate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/电话场景/office.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/电话场景/office.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Key.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Key.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/KeyRotate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/KeyRotate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/汽车/汽车.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/汽车/汽车.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +110,7 @@
       <workItem from="1689377229500" duration="10668000" />
       <workItem from="1689391503970" duration="19564000" />
       <workItem from="1689414375886" duration="31424000" />
-      <workItem from="1689489651859" duration="11915000" />
+      <workItem from="1689489651859" duration="13514000" />
     </task>
     <servers />
   </component>
