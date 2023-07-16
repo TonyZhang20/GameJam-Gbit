@@ -64,8 +64,8 @@ namespace Script
         /// <param name="action"></param>
         public virtual void RotateAngle(float angle, Transform target, float time = 0.2f, Action action = null)
         {
-            DOTween.Kill(_tweenerCore);
-            
+            _tweenerCore?.Kill();
+
             _tweenerCore = target.DOLocalRotate(-rotateAxis * angle, time, RotateMode.WorldAxisAdd);
             
             if(action == null) return;
