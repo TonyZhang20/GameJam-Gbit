@@ -3,6 +3,7 @@
     Properties
     {
         [MainColor] _BaseColor ("Color", Color) = (1,1,1,1)
+    	_MainTex ("Main Texture", 2D) = "white" {}
 
         [Space(10)]
         [KeywordEnum(None, Single, Steps, Curve)]_CelPrimaryMode("Cel Shading Mode", Float) = 1
