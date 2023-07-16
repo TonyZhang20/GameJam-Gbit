@@ -6,20 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c202c272-13f1-4578-b1d7-d74292e879f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GBitGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GBitGameJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animator/SpriteRendererClock/BubbleAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animator/SpriteRendererClock/BubbleAnimation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraShake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/贴图.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/贴图.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SelectLevelScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SelectLevelScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/AudioManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Clock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Clock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ClockRotate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ClockRotate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/RotateScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/RotateScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Telephone.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Telephone.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/TelephoneRotate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/TelephoneRotate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/电话场景/office.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/电话场景/office.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/闹钟/闹钟.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/闹钟/闹钟.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +111,7 @@
       <workItem from="1689377229500" duration="10668000" />
       <workItem from="1689391503970" duration="19564000" />
       <workItem from="1689414375886" duration="31424000" />
-      <workItem from="1689489651859" duration="10423000" />
+      <workItem from="1689489651859" duration="11915000" />
     </task>
     <servers />
   </component>
