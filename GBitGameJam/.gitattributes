@@ -2,3 +2,4 @@ DiffuseA.psd filter=lfs diff=lfs merge=lfs -text
 Planet filter=lfs diff=lfs merge=lfs -text
 Planet.psd filter=lfs diff=lfs merge=lfs -text
 PlanetNormal.psd filter=lfs diff=lfs merge=lfs -text
+resources.assets.resS filter=lfs diff=lfs merge=lfs -text
