@@ -1,5 +1,7 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Script
 {
@@ -13,6 +15,7 @@ namespace Script
         public int currentZoomTime;
         public Animator cameraAnimator;
         private static readonly int Zoom = Animator.StringToHash("Zoom");
+        public GameObject target;
 
         private void Awake()
         {
@@ -37,12 +40,25 @@ namespace Script
         {
             currentZoomTime--;
             if (currentZoomTime <= -2)
-                LoadNextLevel();
+            {
+                FindObjectOfType<CameraShake>().StartShake();
+                SetTargetActive();
+            }
         }
 
         public void LoadNextLevel()
         {
-            SceneManager.LoadScene(index);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        
+        public void LoadNextLevel(int i)
+        {
+            SceneManager.LoadScene(i);
+        }
+
+        public void SetTargetActive()
+        {
+            target.SetActive(true);
         }
     }
 }

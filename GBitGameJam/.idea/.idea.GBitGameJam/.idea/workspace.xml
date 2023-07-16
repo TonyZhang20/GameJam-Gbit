@@ -4,7 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c202c272-13f1-4578-b1d7-d74292e879f6" name="Changes" comment="" />
+    <list default="true" id="c202c272-13f1-4578-b1d7-d74292e879f6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GBitGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GBitGameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animator/SpriteRendererClock/ChangePantsAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animator/SpriteRendererClock/ChangePantsAnimation.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraShake.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UIImage/next1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UIImage/next1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UIImage/next2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UIImage/next2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UIImage/win1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UIImage/win1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UIImage/win2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UIImage/win2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Clock/LevelOneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Clock/LevelOneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/zzz动画.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/zzz动画/._z1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/zzz动画/._z2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/zzz动画/._z3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/zzz动画/._z4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/气泡.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/气泡/._未命名作品-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/气泡/._未命名作品-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/气泡/._未命名作品-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/被窝动画.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/被窝动画/._被窝1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/被窝动画/._被窝2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/起床动画.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/起床动画/._1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/起床动画/._2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/起床动画/._3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/第一关动画/__MACOSX/起床动画/._4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/闹钟.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/闹钟/闹钟.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/闹钟小画面.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/闹钟小画面.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/闹钟/闹钟演出.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/闹钟/闹钟演出.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +50,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/27/da36424e/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/90/c052e128/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/b4/37adb190/RotateMode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BackGroundWaitForLoadScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Animator/AnimatorTogether.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Clock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Clock/LevelOneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Clock/Timeclock.cs" root0="FORCE_HIGHLIGHTING" />
@@ -98,7 +135,8 @@
       <updated>1689377224560</updated>
       <workItem from="1689377229500" duration="10668000" />
       <workItem from="1689391503970" duration="19564000" />
-      <workItem from="1689414375886" duration="31303000" />
+      <workItem from="1689414375886" duration="31424000" />
+      <workItem from="1689489651859" duration="3955000" />
     </task>
     <servers />
   </component>
