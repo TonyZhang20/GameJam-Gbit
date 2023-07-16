@@ -48,8 +48,11 @@ namespace Script
                 totalAngle += rotateSpeed * Time.deltaTime;
                 transform.Rotate(rotateAxis, rotateSpeed * Time.deltaTime);
             }
-        }   
-
+        }
+        public void SetAbleToRotate(bool val)
+        {
+            ableToRotate = val;
+        }
         /// <summary>
         /// 顺时针输入负数角度，逆时针输入正数
         /// </summary>
@@ -60,7 +63,7 @@ namespace Script
         public virtual void RotateAngle(float angle, Transform target, float time = 0.2f, Action action = null)
         {
             DOTween.Kill(_tweenerCore);
-
+            
             _tweenerCore = target.DOLocalRotate(-rotateAxis * angle, time, RotateMode.WorldAxisAdd);
             
             if(action == null) return;
