@@ -9,6 +9,7 @@ namespace Script
     /// </summary>
     public class LevelTwoManager  : MonoBehaviour
     {
+        public Canvas canvas;
         public static LevelTwoManager Instance => _instance;
         private static LevelTwoManager _instance;
 
@@ -33,12 +34,20 @@ namespace Script
                 zoomTime = currentZoomTime;
                 zoomTime++;
             }
+            if(currentZoomTime >= 2)
+            {
+                canvas.transform.GetChild(1).gameObject.SetActive(true);
+            }
 
         }
 
         public void TimeGoes()
         {
             currentZoomTime--;
+            if(currentZoomTime <= 0)
+            {
+                canvas.transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
     }
 }

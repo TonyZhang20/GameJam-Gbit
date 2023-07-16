@@ -12,6 +12,7 @@ namespace Script
         public static LevelThreeManager Instance => _instance;
         private static LevelThreeManager _instance;
 
+        public Canvas canvas;
         public int zoomTime;
         public int currentZoomTime;
         public Animator cameraAnimator;
@@ -53,12 +54,20 @@ namespace Script
                 zoomTime = currentZoomTime;
                 zoomTime++;
             }
+            if (currentZoomTime >= 2)
+            {
+                canvas.transform.GetChild(1).gameObject.SetActive(true);
+            }
 
         }
 
         public void TimeGoes()
         {
             currentZoomTime--;
+            if (currentZoomTime <= 0)
+                {
+                    canvas.transform.GetChild(0).gameObject.SetActive(true);
+                }
         }
     }
 }
