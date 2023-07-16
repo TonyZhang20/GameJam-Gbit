@@ -79,9 +79,10 @@ namespace Script
 
             _platform.transform.Rotate(new Vector3(rotateAngle, 0, 0));
 
-            Vector3 scale = _platform.transform.GetChild(0).localScale;
-
-            _platform.transform.GetChild(0).localScale = new Vector3(scale.x, scale.y * _randomAngle / 2.7f, scale.z);
+            var key = _platform.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
+            
+            key.SetBlendShapeWeight(0,MapValue(_randomAngle, judgmentLength.x, judgmentLength.y));
+            
         }
 
         //逻辑判断
@@ -157,6 +158,21 @@ namespace Script
             }
             
         }
+        
+        public float MapValue(float value, float minValue, float maxValue)
+        {
+            // 将输入值限制在最小值和最大值之间
+            float clampedValue = Mathf.Clamp(value, minValue, maxValue);
+
+            // 计算取值范围的比例
+            float t = (clampedValue - minValue) / (maxValue - minValue);
+
+            // 进行线性插值
+            float mappedValue = Mathf.Lerp(100f, 0f, t);
+
+            return mappedValue;
+        }
+
     }
     public enum RedAngleType
     {
