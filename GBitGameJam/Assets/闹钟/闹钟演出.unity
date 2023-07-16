@@ -782,7 +782,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f2ebaee3e8a104d498836634607efe94, type: 2}
+  - {fileID: 2100000, guid: 262a59501040e34429dad61870d9a5e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -819,14 +819,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877838717}
-  m_LocalRotation: {x: 0.32999128, y: -0.6253846, z: 0.37281206, w: 0.600842}
-  m_LocalPosition: {x: -2.9539447, y: 0.2973228, z: -0.2008632}
-  m_LocalScale: {x: 0.16397578, y: 0.16397576, z: 0.0995415}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.70710677, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -0.075000286, y: -0.23299932, z: 7.650003}
+  m_LocalScale: {x: 0.33363065, y: 0.3336305, z: 0.23580632}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1767419873}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 59.638, y: -90, z: 4}
+  m_Father: {fileID: 1706348495}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: -90, z: 90}
 --- !u!1 &1005808349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,14 +1497,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706348491}
-  m_LocalRotation: {x: 0.118955, y: 0.897151, z: -0.23083192, w: 0.35733235}
-  m_LocalPosition: {x: -5.14, y: 5.35, z: 5.91}
+  m_LocalRotation: {x: 0.08964519, y: 0.91525537, z: -0.2404511, w: 0.3105716}
+  m_LocalPosition: {x: -4.76, y: 4.97, z: 6.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 877838721}
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 29.947, y: 137.423, z: 3.207}
+  m_LocalEulerAnglesHint: {x: 29.725, y: 142.771, z: 0.973}
 --- !u!1 &1767419870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1556,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1461828229}
-  - {fileID: 877838721}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8385,7 +8385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9192099568090231975
 Transform:
   m_ObjectHideFlags: 0

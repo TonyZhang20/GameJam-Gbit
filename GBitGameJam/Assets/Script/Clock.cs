@@ -56,7 +56,7 @@ namespace Script
         private void AfterJumpFail()
         {
             ableToJump = false;
-            rotateScript.RotateAngle(forceBeforeJump, Pointer, _holdTimeBeforeJump * 1.2f,
+            rotateScript.RotateAngle(forceBeforeJump, Pointer, _holdTimeBeforeJump / 3,
                 EventHandler.CallAfterFailJumpFinish);
         }
 
@@ -97,14 +97,11 @@ namespace Script
 
                 rotateScript.totalAngle += forceBeforeJump;
                 
-                if (crossTwelve) LevelOneManager.Instance.ZoomOut();
             }
             else
             {
                 EventHandler.CallAfterJumpFail();
             }
-
-            crossTwelve = false;
         }
 
         protected override void BeforeJump()
@@ -120,6 +117,9 @@ namespace Script
 
             _animator.SetTrigger(Shake);
             _animator.SetBool(Preparing, false);
+            
+            redAngle.rotation = Pointer.rotation;
+            redAngle.Rotate(new Vector3(angle, 0,0));
 
             angle = 0;
             holdingTime = 0;
@@ -138,16 +138,24 @@ namespace Script
             _animator.SetBool(Preparing, true);
         }
 
-        [SerializeField] private Transform clock;
-        [SerializeField] private bool crossTwelve;
-
-        private Coroutine chasing;
-
-        private float lastFrameAngle = 0;
-
+        public Transform redAngle;
+        public RedAngleType redAngleType = RedAngleType.BeforeJump;
+        
         protected override void ChildUpdate()
         {
             base.ChildUpdate();
+
+            switch (redAngleType)
+            {
+                case RedAngleType.BeforeJump:
+                    if (Input.GetKey(KeyCode.Space))
+                    {
+                        redAngle.rotation = Pointer.rotation;
+                        redAngle.Rotate(new Vector3(angle, 0,0));
+                    }
+                    break;
+            }
+            
         }
     }
     public enum RedAngleType
