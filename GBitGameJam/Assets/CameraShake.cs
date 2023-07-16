@@ -14,6 +14,7 @@ public class CameraShake : MonoBehaviour
     public float fadeInTime;
 
     public CameraShaker cameraShaker;
+    public Sound sound = Sound.AlarmRing;
 
     private void Start()
     {
@@ -30,6 +31,8 @@ public class CameraShake : MonoBehaviour
         shaking = true;
         cameraShaker.ableToShake = true;
         shake = cameraShaker.StartShake(magnitude, roughness, fadeInTime);
+        
+        AudioManager.Instance.PlayAudio(sound);
     }
 
     public void StopShake()

@@ -19,12 +19,17 @@ public class AudioManager : MonoBehaviour
     
     [SerializeField] private List<AudioSource> _audioSourceList = new List<AudioSource>();
 
+    public float audioVolume;
+    
+    
     private void Start()
     {
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
 
         AudioSourceCheck();
+
+        audioMixer.SetFloat("AudioVolume", audioVolume);
     }
     
     private void AudioSourceCheck()
@@ -129,9 +134,8 @@ public class AudioManager : MonoBehaviour
     /// Play one shot
     /// </summary>
     /// <param name="sound"></param>
-    public void PlayAudio(Sound sound)
+    public AudioSource PlayAudio(Sound sound)
     {
-
         AudioSource source = GetFreeAudioSource();
         if (source)
         {
@@ -140,6 +144,8 @@ public class AudioManager : MonoBehaviour
             source.transform.position = Camera.main.transform.position;
             source.Play();
         }
+
+        return source;
     }
 
     /// <summary>
@@ -173,6 +179,19 @@ public class AudioManager : MonoBehaviour
 
 public enum Sound
 {
+    SecondPoint,
+    MinPoint,
+    HourPoint,
+    AlarmRing,
+    Jump,
+    PrepareFast,
+    PrepareNormal,
+    PrepareSlow,
+    ReachFail,
+    ReachSuccess,
+    BubbleExplore,
+    Sleeping,
+    None
 }
 
 [System.Serializable]

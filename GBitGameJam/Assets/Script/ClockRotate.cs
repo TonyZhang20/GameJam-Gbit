@@ -10,7 +10,7 @@ namespace Script
     {
         public float rotateAngle;
         private float _rotateAngle;
-        
+        public float waitTine = 12;
         protected override void RotateFunction()
         {
             base.RotateFunction();
@@ -28,6 +28,11 @@ namespace Script
                 }
             }
 
+            if (MovedAngle >= waitTine)
+            {
+                MovedAngle = 0;
+                AudioManager.Instance.PlayAudio(Sound.SecondPoint);
+            }
         }
 
         private void OnEnable()
