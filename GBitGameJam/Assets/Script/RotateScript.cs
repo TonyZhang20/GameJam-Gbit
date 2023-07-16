@@ -74,12 +74,26 @@ namespace Script
         private void Update()
         {
             RotateFunction();
-            ChildUpdate();
+            TotalAngleChecker();
         }
-        
-        protected virtual void ChildUpdate(){}
 
-
+        private void TotalAngleChecker()
+        {
+            if (totalAngle < -360)
+            {
+                //正转一圈
+                totalAngle += 360;
+                LevelOneManager.Instance.TimeGoes();
+                FindObjectOfType<Timeclock>().MoveForward();
+            }
+            else if(totalAngle > 0)
+            {
+                //反转一圈
+                LevelOneManager.Instance.ZoomOut();
+                FindObjectOfType<Timeclock>().MoveBackward();
+                totalAngle -= 360;
+            }
+        }
         
         public float GetCurrentAngle()
         {
