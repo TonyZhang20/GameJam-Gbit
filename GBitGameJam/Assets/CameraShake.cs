@@ -20,11 +20,13 @@ public class CameraShake : MonoBehaviour
         if(cameraShaker == null)
             cameraShaker = GetComponentInParent<CameraShaker>();
         
-        StartShake();
+        //StartShake();
     }
 
     public void StartShake()    
     {
+        if(shaking) return;
+        
         shaking = true;
         cameraShaker.ableToShake = true;
         shake = cameraShaker.StartShake(magnitude, roughness, fadeInTime);
