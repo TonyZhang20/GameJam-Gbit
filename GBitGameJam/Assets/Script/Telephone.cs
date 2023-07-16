@@ -26,13 +26,13 @@ namespace ns
         protected override void ChildStart()
         {
             _animator = GetComponent<Animator>();
-            rotateScript.SetAbleToRotate(false);
-            StartCoroutine(CallNum3());
+            StartCoroutine(CallNum5());
         }
-        private IEnumerator CallNum3()
+        private IEnumerator CallNum5()
         {
+            rotateScript.SetAbleToRotate(false);
             yield return new WaitForSeconds(0.1f);
-            rotateScript.RotateAngle(-132, Pointer, 1f);
+            rotateScript.RotateAngle(-186, Pointer, 1f);
             yield return new WaitForSeconds(0.9f);
             EnableRotate();
             GenerateStartJumpPoint();
@@ -49,7 +49,7 @@ namespace ns
             EventHandler.BeforeJumpStart -= BeforeJumpStart;
             EventHandler.AfterJumpFail -= AfterJumpFail;
         }
-        public void EnableRotate()                            
+        public void EnableRotate()
         {
             rotateScript.SetAbleToRotate(true);
             //_animator.enabled = false;
@@ -63,29 +63,21 @@ namespace ns
 
         private void AfterJumpFail()
         {
-            rotateScript.RotateAngle(_forceBeforeJump, Pointer, _holdTimeBeforeJump / 2, EventHandler.CallAfterFailJumpFinish);
-            ableToJump = false;
+            rotateScript.RotateAngle(_forceBeforeJump, Pointer, _holdTimeBeforeJump / 2);
         }
-
-        private void AfterJumpFailFinish()
-        {
-            ableToJump = true;
-        }
-        
-        
 
         protected override void GenerateStartJumpPoint()
         {
             rotateAngle = Random.Range(judgmentArea.x, judgmentArea.y);
             _randomAngle = Random.Range(judgmentLength.x, judgmentLength.y);
 
-            _platform = Instantiate((GameObject)Resources.Load("Prefabs/Platform/�绰ת��"), transform);
+            _platform = Instantiate((GameObject)Resources.Load("Prefabs/Platform/电话转盘"), transform);
 
             _platform.GetComponent<MeshRenderer>().enabled = false;
 
             _platform.transform.rotation = Pointer.rotation;
 
-            _platform.transform.Rotate(new Vector3(0, 0,rotateAngle));
+            _platform.transform.Rotate(new Vector3(0, 0, rotateAngle));
 
             Vector3 scale = _platform.transform.GetChild(0).localScale;
             _platform.transform.GetChild(0).localScale = new Vector3(scale.x * _randomAngle / 5f, scale.y, scale.z);
@@ -113,9 +105,9 @@ namespace ns
 
         protected override void Jump()
         {
-            EventHandler.CallBeforeJumpStart(); //��Ծ��ʼ
+            EventHandler.CallBeforeJumpStart(); //跳跃开始
 
-            rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, EventHandler.CallAfterJumpFinish);
+            rotateScript.RotateAngle(-angle, Pointer, 0.1f,EventHandler.CallAfterJumpFinish);
             //_animator.SetTrigger(Shake);
             //_animator.SetBool(Preparing, false);
 

@@ -10,12 +10,15 @@ namespace ns
     /// </summary>
     public class TelephoneRotate : RotateScript
     {
+        public Transform Finger;
         public float rotateAngle;
         private float _rotateAngle;
-
+        private Quaternion _fingerWorldRotation;
         protected override void RotateFunction()
         {
             base.RotateFunction();
+
+            Finger.rotation = _fingerWorldRotation;
 
             if (!continueRotate)
             {
@@ -38,6 +41,7 @@ namespace ns
             _rotateAngle = rotateAngle;
             EventHandler.BeforeJumpStart += DuringJump;
             EventHandler.AfterJumpFinish += FinishJump;
+            _fingerWorldRotation = Finger.rotation;
         }
 
         private void OnDisable()
