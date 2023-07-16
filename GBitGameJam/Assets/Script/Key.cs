@@ -98,16 +98,20 @@ namespace ns
                 GenerateStartJumpPoint();
 
                 rotateScript.totalAngle += _forceBeforeJump;
+                
+                AudioManager.Instance.PlayAudio(Sound.ReachSuccess);
             }
             else
             {
                 EventHandler.CallAfterJumpFail();
+                AudioManager.Instance.PlayAudio(Sound.ReachFail);
             }
         }
 
         protected override void BeforeJump()
         {
             //_animator.SetBool(Preparing, true);
+            AudioManager.Instance.PlayAudio(Sound.PrepareNormal);
         }
 
         protected override void Jump()
@@ -117,6 +121,7 @@ namespace ns
             rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, EventHandler.CallAfterJumpFinish);
             //_animator.SetTrigger(Shake);
             //_animator.SetBool(Preparing, false);
+            AudioManager.Instance.PlayAudio(Sound.Jump);
 
             angle = 0;
             holdingTime = 0;
