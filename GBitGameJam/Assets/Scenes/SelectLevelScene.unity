@@ -826,7 +826,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: 0.08581493, w: 0.9963111}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 790282070}
   m_Father: {fileID: 1921091777}
