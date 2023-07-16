@@ -23,6 +23,9 @@ namespace Script
         protected TweenerCore<Quaternion, Vector3, QuaternionOptions> _tweenerCore;
         protected bool ableToRotate = true;
         protected Vector3 rotateAxis;
+
+        public float totalAngle;
+        
         private void Start()
         {
             switch (Axis)
@@ -42,9 +45,10 @@ namespace Script
         {
             if (continueRotate && ableToRotate)
             {
+                totalAngle += rotateSpeed * Time.deltaTime;
                 transform.Rotate(rotateAxis, rotateSpeed * Time.deltaTime);
             }
-        }
+        }   
 
         /// <summary>
         /// 顺时针输入负数角度，逆时针输入正数
@@ -52,19 +56,40 @@ namespace Script
         /// <param name="angle"></param>
         /// <param name="target"></param>
         /// <param name="time"></param>
-        public void RotateAngle(float angle, Transform target, float time = 0.2f, bool callEvent = false)
+        /// <param name="action"></param>
+        public virtual void RotateAngle(float angle, Transform target, float time = 0.2f, Action action = null)
         {
             DOTween.Kill(_tweenerCore);
 
             _tweenerCore = target.DOLocalRotate(-rotateAxis * angle, time, RotateMode.WorldAxisAdd);
-
-            if (callEvent)
-                _tweenerCore.OnComplete(EventHandler.CallAfterJumpFinish);
+            
+            if(action == null) return;
+            
+            _tweenerCore.OnComplete(action.Invoke);
         }
 
         private void Update()
         {
             RotateFunction();
+            TotalAngleChecker();
+        }
+
+        private void TotalAngleChecker()
+        {
+            if (totalAngle < -360)
+            {
+                //正转一圈
+                totalAngle += 360;
+                LevelOneManager.Instance.TimeGoes();
+                FindObjectOfType<Timeclock>().MoveForward();
+            }
+            else if(totalAngle > 0)
+            {
+                //反转一圈
+                LevelOneManager.Instance.ZoomOut();
+                FindObjectOfType<Timeclock>().MoveBackward();
+                totalAngle -= 360;
+            }
         }
         
         public float GetCurrentAngle()

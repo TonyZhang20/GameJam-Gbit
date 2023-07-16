@@ -26,7 +26,6 @@ namespace Script
                     RotateAngle(_rotateAngle, transform);
                     counting = 1;
                 }
-
             }
 
         }
@@ -54,6 +53,12 @@ namespace Script
         {
             _rotateAngle = rotateAngle;
             ableToRotate = true;
+        }
+
+        public override void RotateAngle(float angle, Transform target, float time = 0.2f, Action action = null)
+        {
+            base.RotateAngle(angle, target, time, action);
+            
         }
     }
 }

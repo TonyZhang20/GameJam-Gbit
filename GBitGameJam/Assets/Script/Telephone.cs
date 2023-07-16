@@ -51,8 +51,16 @@ namespace ns
 
         private void AfterJumpFail()
         {
-            rotateScript.RotateAngle(_forceBeforeJump, Pointer, _holdTimeBeforeJump / 2);
+            rotateScript.RotateAngle(_forceBeforeJump, Pointer, _holdTimeBeforeJump / 2, EventHandler.CallAfterFailJumpFinish);
+            ableToJump = false;
         }
+
+        private void AfterJumpFailFinish()
+        {
+            ableToJump = true;
+        }
+        
+        
 
         protected override void GenerateStartJumpPoint()
         {
@@ -93,9 +101,9 @@ namespace ns
 
         protected override void Jump()
         {
-            EventHandler.CallBeforeJumpStart(); //ÌøÔ¾¿ªÊ¼
+            EventHandler.CallBeforeJumpStart(); //ï¿½ï¿½Ô¾ï¿½ï¿½Ê¼
 
-            rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, true);
+            rotateScript.RotateAngle(-angle, Pointer, holdingTime / 5, EventHandler.CallAfterJumpFinish);
             //_animator.SetTrigger(Shake);
             //_animator.SetBool(Preparing, false);
 
