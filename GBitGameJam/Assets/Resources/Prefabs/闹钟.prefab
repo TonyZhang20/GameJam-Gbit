@@ -518,7 +518,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4097264670926705778}
-  m_LocalRotation: {x: 0.00000076159625, y: 0.00087269454, z: 0.00087269454, w: 0.9999993}
+  m_LocalRotation: {x: 0.0000010313328, y: 0.001181779, z: 0.001181779, w: 0.9999986}
   m_LocalPosition: {x: -0.0489, y: 0.1223, z: -0.0013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -542,9 +542,11 @@ MonoBehaviour:
   force: 120
   angle: 0
   ableToJump: 1
-  judgmentArea: {x: 50, y: 150}
+  rotateScript: {fileID: 0}
+  judgmentArea: {x: 30, y: 100}
   rotateAngle: 0
-  judgmentLength: {x: 7, y: 12}
+  judgmentLength: {x: 10, y: 20}
+  _forceBeforeJump: 0
 --- !u!114 &450380227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23321224beff5ce4aa3296ba81211787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 5
+  rotateSpeed: -50
+  continueRotate: 1
   pointer: {fileID: 5974745783745267453}
   rotateAngle: 15
 --- !u!95 &450380228
@@ -570,7 +573,7 @@ Animator:
   m_GameObject: {fileID: 4097264670926705778}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b152cc44ffd31f4684a840c4f60ea0f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
