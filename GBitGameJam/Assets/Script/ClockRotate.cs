@@ -55,6 +55,35 @@ namespace Script
             ableToRotate = true;
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
+        protected override void ChildUpdate()
+        {
+            base.ChildUpdate();
+            TotalAngleChecker();
+        }
+        
+        private void TotalAngleChecker()
+        {
+            if (totalAngle < -360)
+            {
+                //正转一圈
+                totalAngle += 360;
+                LevelOneManager.Instance.TimeGoes();
+                FindObjectOfType<Timeclock>().MoveForward();
+            }
+            else if(totalAngle > 0)
+            {
+                //反转一圈
+                LevelOneManager.Instance.ZoomOut();
+                FindObjectOfType<Timeclock>().MoveBackward();
+                totalAngle -= 360;
+                if (counting >= 1)
+                {
+                    GetComponent<Clock>().redAngleType = RedAngleType.AfterJump;
+                }
+            }
+        }
+
         public override void RotateAngle(float angle, Transform target, float time = 0.2f, Action action = null)
         {
             base.RotateAngle(angle, target, time, action);
